@@ -23,18 +23,16 @@ async def lifespan(app: FastAPI):
     try:
         camera_count = db.query(Camera).count()
         if camera_count == 0:
-            print("[System Lifecycle] Database empty. Pre-populating default demo cameras...")
+            print("[System Lifecycle] Database empty. Pre-populating Store 2 cameras...")
             default_cams = [
-                Camera(
-                    id=1, 
-                    name="Entrance & Main Floor Cam", 
-                    stream_url="demo",  # triggers synthetic showroom canvas
-                    is_active=True
-                )
+                Camera(id=1, name="Store 2 - Entry 1", stream_url="Store 2/entry 1.mp4", is_active=True),
+                Camera(id=2, name="Store 2 - Entry 2", stream_url="Store 2/entry 2.mp4", is_active=True),
+                Camera(id=3, name="Store 2 - Billing Area", stream_url="Store 2/billing_area.mp4", is_active=True),
+                Camera(id=4, name="Store 2 - Zone", stream_url="Store 2/zone.mp4", is_active=True)
             ]
             db.add_all(default_cams)
             db.commit()
-            print("[System Lifecycle] Default cameras seeded successfully.")
+            print("[System Lifecycle] Store 2 cameras seeded successfully.")
         
         # 3. Auto-start active cameras
         active_cameras = db.query(Camera).filter(Camera.is_active == True).all()

@@ -27,49 +27,64 @@ BACKEND_URL = st.sidebar.text_input("Backend API URL", "http://127.0.0.1:8000")
 # Custom Premium Styling CSS
 st.markdown("""
 <style>
-    /* Custom main background styling */
-    .stApp {
-        background-color: #0F0F13;
-        color: #E2E2E9;
+    /* Metric styling - Lighter purple for better contrast */
+    div[data-testid="stMetric"] {
+        background-color: #4A1E58;
+        border: 1px solid #9C42B3; 
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
-    /* Metric styling */
-    div[data-testid="metric-container"] {
-        background-color: #1A1A24;
-        border: 1px solid #2C2C3E;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-    div[data-testid="metric-label"] {
-        color: #A2A2B0 !important;
-        font-size: 14px !important;
+    div[data-testid="stMetricLabel"] p {
+        color: #F0C4FA !important; /* Lighter soft purple text */
+        font-size: 15px !important;
         text-transform: uppercase;
-        font-weight: 600;
-    }
-    div[data-testid="metric-value"] {
-        color: #E2E2E9 !important;
-        font-size: 28px !important;
         font-weight: 700;
+        letter-spacing: 0.8px;
     }
+    div[data-testid="stMetricValue"] div {
+        color: #FFFFFF !important;
+        font-size: 34px !important;
+        font-weight: 900;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    
     /* Custom Alerts style */
     .alert-card {
-        padding: 10px 15px;
+        padding: 15px 18px;
         border-radius: 8px;
-        margin-bottom: 8px;
-        border-left: 5px solid;
-        color: #E2E2E9;
+        margin-bottom: 12px;
+        border-left: 6px solid;
+        color: #F8EDFA;
+        background-color: #381A46; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     .alert-critical {
-        background-color: #3B1313;
-        border-left-color: #FF4B4B;
+        background-color: #4A1324;
+        border-left-color: #FF2E63; 
     }
     .alert-warning {
-        background-color: #332111;
-        border-left-color: #FFAA00;
+        background-color: #4A3412;
+        border-left-color: #FFB300;
     }
     .alert-info {
-        background-color: #112233;
-        border-left-color: #00AAFF;
+        background-color: #381A46;
+        border-left-color: #BD42ED;
+    }
+    
+    /* Headers and Links */
+    h1, h2, h3 {
+        color: #FFFFFF !important;
+        font-weight: 800 !important;
+    }
+    h4, h5, h6 {
+        color: #E2B2EC !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Sidebar adjustments */
+    [data-testid="stSidebar"] {
+        border-right: 1px solid #4A1E58;
     }
 </style>
 """, unsafe_allow_html=True)

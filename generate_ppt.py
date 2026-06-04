@@ -75,7 +75,7 @@ def create_presentation():
     p2.space_before = Pt(15)
     
     p3 = tf1.add_paragraph()
-    p3.text = "Presented by: Himadri"
+    p3.text = "Presented by: Himadri Mani"
     p3.font.name = "Arial"
     p3.font.size = Pt(16)
     p3.font.color.rgb = TEXT_SUB
@@ -347,6 +347,23 @@ def create_presentation():
         run.text = b_desc
         run.font.bold = False
         run.font.color.rgb = TEXT_SUB
+
+    # --- SLIDE 11: THANK YOU ---
+    slide_layout = prs.slide_layouts[6]  # Blank layout
+    slide11 = prs.slides.add_slide(slide_layout)
+    apply_background(slide11)
+    
+    # Thank You Box
+    ty_box = slide11.shapes.add_textbox(Inches(0.0), Inches(3.0), Inches(13.333), Inches(1.5))
+    ty_tf = ty_box.text_frame
+    ty_tf.word_wrap = True
+    ty_p = ty_tf.paragraphs[0]
+    ty_p.text = "Thank You!"
+    ty_p.font.name = "Arial"
+    ty_p.font.size = Pt(60)
+    ty_p.font.bold = True
+    ty_p.font.color.rgb = PURPLLE_COLOR
+    ty_p.alignment = PP_ALIGN.CENTER
 
     # Save Presentation
     output_filename = "Purplle_Store_Intelligence_PRIS.pptx"
