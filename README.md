@@ -51,6 +51,21 @@ By leveraging real-time computer vision, retail operators can measure customer f
 
 ---
 
+## 📦 Submission Deliverables
+
+All mandatory deliverables are included in this repository:
+
+| Deliverable | File | Description |
+|---|---|---|
+| ✅ Event Log (JSONL) | [`events.jsonl`](events.jsonl) | 50 detection events in valid JSONL format with enriched schema (event type, severity, zone, occupancy metrics). |
+| ✅ README | [`README.md`](README.md) | Complete project documentation with setup instructions, API reference, and architecture overview. |
+| ✅ Design Document | [`DESIGN.md`](DESIGN.md) | System architecture, component design, data flow, edge-case handling, and **AI-Assisted Decisions** section. |
+| ✅ Choices Document | [`CHOICES.md`](CHOICES.md) | Detailed trade-off analysis covering model selection (YOLOv8n), schema design (3-table relational), and API architecture (FastAPI + MJPEG). |
+| ✅ Source Code | [`app/`](app/) | Full application source — pipeline, API, dashboard, models, and schemas. |
+| ✅ Docker Config | [`Dockerfile`](Dockerfile) + [`docker-compose.yml`](docker-compose.yml) | Production-ready containerized deployment. |
+
+---
+
 ## 🏗️ Architectural Blueprint
 
 The platform employs a **highly decoupled microservices architecture** that guarantees separation of concerns:
@@ -67,9 +82,7 @@ To guarantee that reviewers can run the project **immediately** without download
 ## 📂 Project Directory Structure
 
 ```
-/Users/mani16/Desktop/ctv/
-├── .vscode/
-│   └── settings.json        # Recommended VS Code interpreter settings
+/ctv/
 ├── app/                     # Core Application Package
 │   ├── __init__.py          # Package initializer
 │   ├── config.py            # Global configuration & alert thresholds
@@ -91,10 +104,13 @@ To guarantee that reviewers can run the project **immediately** without download
 │   └── store_intel.db       # Created automatically on startup
 ├── assets/                  # Folder to place sample MP4 files
 ├── .gitignore
-├── requirements.txt         # pinned dependencies
+├── requirements.txt         # Pinned dependencies
 ├── Dockerfile               # Unified Docker multi-stage configuration
 ├── docker-compose.yml       # Production-ready orchestration
-└── README.md                # Submission Documentation
+├── events.jsonl             # 📋 Event log output (JSONL format) — MANDATORY DELIVERABLE
+├── README.md                # 📋 Project documentation — MANDATORY DELIVERABLE
+├── DESIGN.md                # 📋 System design & AI-Assisted Decisions — MANDATORY DELIVERABLE
+└── CHOICES.md               # 📋 Model, schema & API architecture choices — MANDATORY DELIVERABLE
 ```
 
 ---
@@ -107,7 +123,8 @@ Ensure you have **Python 3.10** installed. Follow these step-by-step instruction
 
 #### 1. Clone & Navigate to Project
 ```bash
-cd /Users/mani16/Desktop/ctv
+git clone <repository-url>
+cd ctv
 ```
 
 #### 2. Create and Activate Virtual Environment
